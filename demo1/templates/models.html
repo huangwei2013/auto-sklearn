@@ -1,0 +1,69 @@
+
+{% extends "base.html" %}
+
+{% block title %}ModelList{% endblock %}
+
+
+{% block page_content %}
+    
+    <table class="table table-bordered">
+    <caption>Model</caption>
+        <tr>
+            <th>DataSet</th>
+            <td>{{pmodel.ds.name}}</td>
+        </tr>
+        <tr>
+            <th>KS</th>
+            <td>{{pmodel.ks}}</td>
+        </tr>
+        <tr>
+            <th>AUC</th>
+            <td>{{pmodel.auc}}</td>
+        </tr>
+        <tr>
+            <th>SubModels-MaxModels/RealModels</th>
+            <td>{{pmodel.ensemble_size}}/{{pmodel.ensemble_rsize}}</td>
+        </tr>   
+        <tr>
+            <th>IncludedEstimators</th>
+            <td>{{pmodel.include_estimators}}</td>
+        </tr> 
+        <tr>
+            <th>ExcludedEstimators</th>
+            <td>{{pmodel.exclude_estimators}}</td>
+        </tr> 
+        <tr>
+            <th>TaskTimeToRun(Seconds)</th>
+            <td>{{pmodel.time_left_for_this_task}}</td>
+        </tr> 
+        <tr>
+            <th>EachEstimatorTimeToRun(Seconds)</th>
+            <td>{{pmodel.per_run_time_limit}}</td>
+        </tr>         
+    </table>    
+
+    <table class="table table-bordered">
+    <caption>SubModels</caption>
+    <tr>
+        <th>ID</th>
+        <th>Weigth</th>
+        <th>EstimatorType</th>
+        <th>Estimator</th>
+        <th>Feature-Encoding</th>
+        <th>Feature-Absence</th>
+        <th>Estimator-Config</th>
+    </tr>
+        {% for i in submodels %}
+            <tr>
+                <td>{{ i[0] }}</td>
+                <td>{{ i[1] }}</td>
+                <td>{{ i[2] }}</td>
+                <td>{{ i[3] }}</td>
+                <td>{{ i[4] }}</td>
+                <td>{{ i[5] }}</td>
+                <td>{{ i[6]|join(d='<br/>')|safe }}</td>
+            </tr>
+    {% endfor %}
+    </table>
+
+{% endblock %}
