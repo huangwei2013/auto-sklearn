@@ -1,0 +1,5 @@
+# Run
+  python3 model.py
+  
+# Visit
+  http://127.0.0.1/models    (or Your Server IP)
