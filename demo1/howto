@@ -1,3 +1,10 @@
+# What for
+  
+  Get inside information in auto-sklearn, of "automl",
+  
+  which a result of autosklearn.classification.AutoSklearnClassifier (as you can see in model.py)
+
+
 # Dependency
   pip3 install flask_bootstrap
 
