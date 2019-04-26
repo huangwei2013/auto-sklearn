@@ -1,3 +1,6 @@
+# Dependency
+  pip3 install flask_bootstrap
+
 # Run
   python3 model.py
   
