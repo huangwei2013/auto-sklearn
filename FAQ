@@ -1,0 +1,14 @@
+
+## Q：Runtime Error
+    ValueError: Cannot load file containing pickled data when allow_pickle=False
+## A：
+    2019.01 
+      Numpy Securty Report(1.10-1.6.x)
+      fixed >=1.16.3 ,by changed the initial input params, while autosklearn may keep as before
+    
+    avoided by :
+      numpy/lib/npyio.py
+        revised:  
+          allow_pickle=False
+        to:
+          allow_pickle=True
