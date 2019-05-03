@@ -14,3 +14,7 @@ Some codes, FAQ when exploring auto-sklearn.
   sklearn 0.19.2 <br/>
   auto-sklearn 0.5.1 <br/>
   
+## Demos：
+
+  ### Demo1
+  Get information from ensembled models（KS、AUC、submodels' attributes，etc），display on page（by jinja2）
