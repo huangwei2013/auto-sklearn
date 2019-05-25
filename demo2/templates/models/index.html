@@ -1,0 +1,29 @@
+
+{% extends "base.html" %}
+
+
+{% block page_content %}
+        
+    <table class="table table-bordered">
+    <caption>模型列表</caption>
+    <tr>
+        <th>ID</th>
+        <th>名称</th>
+        <th>类型</th>
+        <th>状态</th>
+        <th>录入时间</th>
+        <th>使用情况</th>
+    </tr>
+        {% for i in models %}
+            <tr>
+                <td>{{ i.id }}</td>
+                <td>{{ i.name }}</td>
+                <td>{{ i.type }}</td>
+                <td>{{ i.status }}</td>
+                <td>{{ i.create_time }}</td>
+                <td>{{ i.link_use }}</td>
+            </tr>
+    {% endfor %}
+    </table>
+
+{% endblock %}

@@ -1,0 +1,30 @@
+
+{% extends "base.html" %}
+
+
+{% block page_content %}
+        
+    <table class="table table-bordered">
+    <caption>模型集列表</caption>
+    <tr>
+        <th>ID</th>
+        <th>数据集</th>
+        <th>KS</th>
+        <th>AUC</th>
+        <th>子模型集-最大模型数/实际模型数</th>
+        <th>生成时间</th>
+        <th>详情</th>
+    </tr>
+        {% for i in models %}
+            <tr>
+                <td>{{ i.id }}</td>
+                <td>{{ i.dataset }}</td>
+                <td>{{ i.ks }}</td>
+                <td>{{i.ensemble_size}}/{{i.ensemble_rsize}}</td>
+                <td>{{ i.create_time }}</td>
+                <td>{{ i.detail_link }}</td>
+            </tr>
+    {% endfor %}
+    </table>
+
+{% endblock %}

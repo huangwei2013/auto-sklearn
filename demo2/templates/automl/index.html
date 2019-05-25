@@ -1,0 +1,35 @@
+
+{% extends "base.html" %}
+
+
+{% block page_content %}
+        
+    <table class="table table-bordered">
+    <caption>Automl列表</caption>
+    <tr>
+        <th>ID</th>
+        <th>说明</th>
+        <th>类型</th>
+        <th>状态</th>
+        <th>ks</th>
+        <th>ds</th>
+        <th>创建时间</th>
+        <th>完成时间</th>
+        <th>子模型信息</th>
+    </tr>
+        {% for i in models %}
+            <tr>
+                <td>{{ i.id }}</td>
+                <td>{{ i.note }}</td>
+                <td>{{ i.type }}</td>
+                <td>{{ i.status }}</td>
+                <td>{{ i.ks }}</td>
+                <td>{{ i.ds }}</td>
+                <td>{{ i.create_time }}</td>
+                <td>{{ i.finish_time }}</td>
+                <td><a href="get/{{ i.id }}"</a>请点击</td>
+            </tr>
+    {% endfor %}
+    </table>
+
+{% endblock %}

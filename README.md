@@ -16,5 +16,9 @@ Some codes, FAQ when exploring auto-sklearn.
   
 ## Demos：
 
-  ### Demo1
+### Demo1
   Get information from ensembled models（KS、AUC、submodels' attributes，etc），display on page（by jinja2）
+
+### Demo2
+    Better project structure based on demo1
+    More function for data storage 

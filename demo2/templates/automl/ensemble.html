@@ -1,0 +1,67 @@
+
+{% extends "base.html" %}
+
+
+{% block page_content %}
+    
+    <table class="table table-bordered">
+    <caption>模型信息</caption>
+        <tr>
+            <th>数据集</th>
+            <td>{{pmodel.ds}}</td>
+        </tr>
+        <tr>
+            <th>KS</th>
+            <td>{{pmodel.ks}}</td>
+        </tr>
+        <tr>
+            <th>AUC</th>
+            <td>{{pmodel.auc}}</td>
+        </tr>
+        <tr>
+            <th>子模型集-最大模型数/实际模型数</th>
+            <td>{{pmodel.ensemble_size}}/{{pmodel.ensemble_rsize}}</td>
+        </tr>   
+        <tr>
+            <th>指定算法(集)</th>
+            <td>{{pmodel.include_estimators}}</td>
+        </tr> 
+        <tr>
+            <th>排除算法(集)</th>
+            <td>{{pmodel.exclude_estimators}}</td>
+        </tr> 
+        <tr>
+            <th>运行时长-建模任务总时长(秒)</th>
+            <td>{{pmodel.time_left_for_this_task}}</td>
+        </tr> 
+        <tr>
+            <th>运行时长-单算法建模时长(秒)</th>
+            <td>{{pmodel.per_run_time_limit}}</td>
+        </tr>         
+    </table>    
+
+    <table class="table table-bordered">
+    <caption>子模型集信息</caption>
+    <tr>
+        <th>ID</th>
+        <th>比重</th>
+        <th>算法类型</th>
+        <th>算法</th>
+        <th>特征-编码处理</th>
+        <th>特征-缺失值处理</th>
+        <th>算法-参数</th>
+    </tr>
+        {% for i in submodels %}
+            <tr>
+                <td>{{ i.id }}</td>
+                <td>{{ i.weight }}</td>
+                <td>{{ i.type }}</td>
+                <td>{{ i.estimator }}</td>
+                <td>{{ i.encoding }}</td>
+                <td>{{ i.imputation }}</td>
+                <td>{{ i.classifier_params|join(d='<br/>')|safe }}</td>
+            </tr>
+    {% endfor %}
+    </table>
+
+{% endblock %}
